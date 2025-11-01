@@ -123,14 +123,18 @@
 
 @layer utilities {
   .wave {
-   animation-name: wave-animation;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  transform-origin: 70% 70%;
-  display: inline-block;
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
   }
-
- 
+  .link-grow {
+    transition: transform 0.8s ease;
+  }
+  .link-grow:hover {
+    transform: scale(1.1);
+  }
 }
 
 @keyframes wave-animation {
