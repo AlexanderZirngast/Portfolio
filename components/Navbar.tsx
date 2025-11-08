@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className="fixed top-0 z-50 w-full backdrop-blur-sm border-b bg-slate-950/10 border-slate-900/15 ">
       <div className="max-w-6xl mx-auto ">
         <div className="flex justify-between items-center px-4 text-lg h-14 sm:h-16 md:h-20">
-          <Link className="flex space-x-1 items-center justify-center text-white font-semibold" href={"/"}>
+          <Link className="flex space-x-1 items-center justify-center text-white font-semibold text-grow " href={"/"}>
             <span>Zirngast</span><span className="text-purple-500/95">Portfolio</span>
           </Link>
           <div className="hidden md:flex justify-center items-center space-x-2 sm:space-x-4 md:space-x-6 text-gray-300">

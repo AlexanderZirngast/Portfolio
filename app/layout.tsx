@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en" suppressHydrationWarning className={poppins.className}>
       <body>
         {children}
       </body>

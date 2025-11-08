@@ -1,11 +1,12 @@
 import ContactSection from "@/components/Contact";
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 import { Particles } from "@/components/ui/shadcn-io/particles";
 import Hero from "@/components/Hero";
+import ContactForm from "@/components/ContactForm";
+import AboutMe from "@/components/AboutMe";
 export default function Home() {
   return (
-    <div className="bg-[hsl(222,47%,4%)] w-screen h-screen overflow-hidden">
+    <div className="bg-[hsl(222,47%,4%)] w-screen h-screen overflow-x-hidden scrollbar-custom">
       <Particles
         className="absolute inset-0"
         quantity={150}
@@ -17,6 +18,8 @@ export default function Home() {
 
       <Navbar />
       <Hero/>
+      <AboutMe/>
+      <ContactForm/>
     </div>
   );
 }
