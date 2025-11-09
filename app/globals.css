@@ -160,6 +160,22 @@
   }
 }
 
+
+@theme {
+  --animate-float-in: float-in 0.7s ease forwards;
+  
+  @keyframes float-in {
+    from {
+      opacity: 0;
+      translate: 0 -20px;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+}
+
 @layer utilities {
   .wave {
     animation-name: wave-animation;
@@ -182,6 +198,18 @@
   .text-grow:hover {
     transform: scale(1.05);
   }
+  .text-glow {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.box-shadow-custom-purple {
+  transition: box-shadow 0.5s ease; 
+}
+
+.box-shadow-custom-purple:hover {
+  box-shadow: 10px 10px 10px rgba(186, 115, 249, 1);
+}
+
 }
 
 @keyframes wave-animation {

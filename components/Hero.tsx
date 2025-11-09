@@ -25,7 +25,7 @@ export default function Hero() {
           </GradientText>
 
           <div className="flex flex-col space-y-4 ">
-            <h1 className="text-xl w-fit text-transparent bg-clip-text bg-linear-65 from-violet-500 to-fuchsia-500">Create Developer & Designer</h1>
+            <h1 className="text-xl w-fit  font-semibold text-white">Creative Developer & Designer</h1>
             <div className="text-white/90">
               I build beautiful digital experiences that combine stunning design with powerful functionality. Specializing in modern web applications and interactive user interfaces.
             </div>
