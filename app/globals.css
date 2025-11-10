@@ -160,6 +160,19 @@
   }
 }
 
+@theme
+{
+  --animate-fadein: fadein 1s ease-out forwards;
+  @keyframes fadein {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+}
+
 
 @theme {
   --animate-float-in: float-in 0.7s ease forwards;
@@ -207,7 +220,7 @@
 }
 
 .box-shadow-custom-purple:hover {
-  box-shadow: 10px 10px 10px rgba(186, 115, 249, 1);
+  box-shadow: 4px 4px 10px rgba(186, 115, 249, 1);
 }
 
 }

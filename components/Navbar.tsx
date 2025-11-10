@@ -7,7 +7,7 @@ import React, { useState } from "react";
 export default function Navbar() {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
   return (
-    <nav className="fixed top-0 z-50 w-full backdrop-blur-sm border-b bg-slate-950/10 border-slate-900/15 animate-float-in">
+    <nav className="fixed top-0 z-50 w-full backdrop-blur-sm border-b bg-slate-950/10 border-slate-900/15 animate-float-in" >
       <div className="max-w-6xl mx-auto ">
         <div className="flex justify-between items-center px-4 text-lg h-14 sm:h-16 md:h-20">
           <Link

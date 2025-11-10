@@ -1,11 +1,14 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import ScrollFadeIn from "./ScrollFadeIn";
 
 
 export default function AboutMe() {
   return (
+  
     <div id="about-section" className="max-w-6xl px-4 py-6 mx-auto relative flex flex-col gap-4  justify-center  ">
+        <ScrollFadeIn>
       <h1 className=" text-3xl font-semibold flex space-x-2 justify-center">
         <span className="text-white">About</span>
         <span className="text-purple-500/90"> Me</span>
@@ -22,6 +25,8 @@ export default function AboutMe() {
           <Image src={'./code-typing-animate.svg'} alt="https://storyset.com/work" width={400} height={300} ></Image>
         </div>
       </div>
+        </ScrollFadeIn>
     </div>
+  
   );
 }

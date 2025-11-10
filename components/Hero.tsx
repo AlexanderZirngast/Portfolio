@@ -6,10 +6,13 @@ import HeroCodeMenu from "./HeroCodeMenu";
 import { SiGithub } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 import { ArrowDown } from "lucide-react";
+import ScrollFadeIn from "./ScrollFadeIn";
 
 export default function Hero() {
   return (
+
     <div className="max-w-6xl  px-4 py-6 mx-auto relative w-full h-full">
+          <ScrollFadeIn>
       <div className=" mt-16 sm:mt-22 lg:mt-24 flex flex-col gap-y-32 lg:flex-row  justify-between">
         <div className="flex flex-col justify-center lg:justify-baseline  space-y-4">
           <h1 className="text-white text-2xl sm:text-3xl  font-medium text-shadow-[rgba(255,255,255,0.2)] text-shadow-sm">
@@ -66,6 +69,8 @@ export default function Hero() {
         Scroll
         <ArrowDown className="text-purple-500"/>
       </div>
+      </ScrollFadeIn>
     </div>
+    
   );
 }

@@ -2,9 +2,11 @@
 import React from "react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import ScrollFadeIn from "./ScrollFadeIn";
 
 export default function ContactForm() {
   return (
+    <ScrollFadeIn>
     <div className="max-w-6xl px-4 py-6 mx-auto relative flex justify-center" >
       <div className="flex flex-col gap-4 text-center  w-[50%]" suppressHydrationWarning>
          <h1 className="text-white text-3xl  font-semibold mb-4">Get in Touch!</h1>
@@ -17,5 +19,6 @@ export default function ContactForm() {
       </div>
      
     </div>
+    </ScrollFadeIn>
   );
 }
