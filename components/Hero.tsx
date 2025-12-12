@@ -68,11 +68,12 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center absolute bottom-12 -translate-x-1/2 left-1/2 text-white animate-bounce">
+        
+      </ScrollFadeIn>
+      <div className="flex flex-col items-center justify-center absolute bottom-12 -translate-x-1/2 left-1/2 text-white animate-bounce">
           Scroll
           <ArrowDown className="text-purple-500" />
         </div>
-      </ScrollFadeIn>
     </div>
   );
 }

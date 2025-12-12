@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import ScrollFadeIn from "./ScrollFadeIn";
@@ -16,9 +16,10 @@ import {
   FieldTitle,
 } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
-import { z } from "zod";
+import { set, z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 export const formSchema = z.object({
   name: z.string().min(2, {
@@ -40,28 +41,49 @@ export default function ContactForm() {
     },
   });
 
-  function onSubmit(data: FormValues) {
-    console.log(data)
+  const [error, setError] = useState<string>("")
+
+  async function  onSubmit(data: FormValues) {
+    console.log(data);
+
+      try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success("Successfully send message");
+      } 
+    } catch (error) {
+      setError(error as string)
+      toast.error('Could not send message');
+    }
+
   }
   return (
     <ScrollFadeIn>
       <div
         id="contact-section"
-        className="max-w-6xl px-4 py-6 mx-auto relative flex justify-center"
+        className="max-w-6xl  sm:px-4 sm:py-6 mx-auto relative flex justify-center"
       >
         <div className="flex flex-col gap-4 text-center  w-[50%]">
-          <h1 className="text-white text-3xl  font-semibold mb-4">
-            Get in Touch!
-          </h1>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="text-white outline-none bg-[rgba(11,19,31,0.4)] p-8 rounded-3xl ">
+         <h1 className="text-white text-3xl  font-semibold mb-4">
+          Get in <span className="text-purple-500">Touch!</span>
+         </h1>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="text-white outline-none bg-[rgba(11,19,31,0.4)] p-8 rounded-3xl "
+          >
             <FieldSet>
               <FieldGroup>
                 <Controller
                   name="name"
                   control={form.control}
                   render={({ field, fieldState }) => (
-                    <Field>
-                      <FieldLabel htmlFor="fullName" data-invalid={fieldState.invalid}>Full name</FieldLabel>
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor="fullName">Full name</FieldLabel>
                       <Input
                         {...field}
                         id="fullName"
@@ -82,8 +104,8 @@ export default function ContactForm() {
                   name="email"
                   control={form.control}
                   render={({ field, fieldState }) => (
-                    <Field>
-                      <FieldLabel htmlFor="email" data-invalid={fieldState.invalid}>Email</FieldLabel>
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor="email">Email</FieldLabel>
                       <Input
                         {...field}
                         id="email"
@@ -104,8 +126,8 @@ export default function ContactForm() {
                   name="message"
                   control={form.control}
                   render={({ field, fieldState }) => (
-                    <Field>
-                      <FieldLabel htmlFor="message" data-invalid={fieldState.invalid}>Message</FieldLabel>
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor="message">Message</FieldLabel>
                       <Textarea
                         {...field}
                         id="message"
@@ -125,7 +147,7 @@ export default function ContactForm() {
             </FieldSet>
             <Button
               type="submit"
-              className="bg-purple-500/80 hover:bg-purple-500 hover:shadow-lg hover:shadow-purple-500/50 mt-4"
+              className="bg-purple-500/80 hover:bg-purple-500 hover:shadow-lg hover:shadow-purple-500/50 mt-8"
             >
               Send Message
             </Button>
