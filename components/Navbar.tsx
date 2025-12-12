@@ -6,8 +6,19 @@ import React, { useState } from "react";
 
 export default function Navbar() {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string
+  ) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    element?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setIsMobileMenuOpened(false);
+  };
+
   return (
-    <nav className="fixed top-0 z-50 w-full backdrop-blur-sm border-b bg-slate-950/10 border-slate-900/15 animate-float-in" >
+    <nav className="fixed top-0 z-50 w-full backdrop-blur-sm border-b bg-slate-950/10 border-slate-900/15 animate-float-in">
       <div className="max-w-6xl mx-auto ">
         <div className="flex justify-between items-center px-4 text-lg h-14 sm:h-16 md:h-20">
           <Link
@@ -18,16 +29,28 @@ export default function Navbar() {
             <span className="text-purple-500/95">Portfolio</span>
           </Link>
           <div className="hidden md:flex justify-center items-center space-x-2 sm:space-x-4 md:space-x-6 text-gray-300">
-            <Link className="hover:text-white" href={"/"} >
+            <Link className="hover:text-white" href={"/"}>
               Home
             </Link>
-            <Link className="hover:text-white" href={"#about-section"}>
+            <Link
+              className="hover:text-white"
+              href={"#about-section"}
+              onClick={(e) => handleClick(e, "about-section")}
+            >
               About
             </Link>
-            <Link className="hover:text-white" href={"#projects-section"}>
+            <Link
+              className="hover:text-white"
+              href={"#projects-section"}
+              onClick={(e) => handleClick(e, "projects-section")}
+            >
               Projects
             </Link>
-            <Link className="hover:text-white" href={"#contact-section"}>
+            <Link
+              className="hover:text-white"
+              href={"#contact-section"}
+              onClick={(e) => handleClick(e, "contact-section")}
+            >
               Contact
             </Link>
           </div>
@@ -39,17 +62,33 @@ export default function Navbar() {
           </button>
         </div>
         {isMobileMenuOpened && (
-          <div className="px-4 flex flex-col  items-center gap-4 text-gray-300 md:hidden">
-            <Link onClick={() => setIsMobileMenuOpened(false)} className="hover:text-white" href={"/"}>
+          <div className="px-4 flex flex-col items-center gap-4 text-gray-300 md:hidden pb-4">
+            <Link
+              onClick={() => setIsMobileMenuOpened(false)}
+              className="hover:text-white"
+              href={"/"}
+            >
               Home
             </Link>
-            <Link onClick={() => setIsMobileMenuOpened(false)} className="hover:text-white" href={"#about-section"}>
+            <Link
+              onClick={(e) => handleClick(e, "about-section")}
+              className="hover:text-white"
+              href={"#about-section"}
+            >
               About
             </Link>
-            <Link onClick={() => setIsMobileMenuOpened(false)} className="hover:text-white" href={"#projects-section"}>
+            <Link
+              onClick={(e) => handleClick(e, "projects-section")}
+              className="hover:text-white"
+              href={"#projects-section"}
+            >
               Projects
             </Link>
-            <Link onClick={() => setIsMobileMenuOpened(false)} className="hover:text-white" href={"#contact-section"}>
+            <Link
+              onClick={(e) => handleClick(e, "contact-section")}
+              className="hover:text-white"
+              href={"#contact-section"}
+            >
               Contact
             </Link>
           </div>

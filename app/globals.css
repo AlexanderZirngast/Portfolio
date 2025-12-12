@@ -4,24 +4,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
-
-@layer utilities
-{
+@layer utilities {
   ::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   ::-webkit-scrollbar-track {
-    background: theme('colors.gray.950');
+    background: theme("colors.gray.950");
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    background: theme('colors.gray.700');
+    background: theme("colors.gray.700");
     border-radius: 6px;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
-    background: theme('colors.gray.600');
+    background: theme("colors.gray.600");
   }
 }
 @theme inline {
@@ -160,23 +158,21 @@
   }
 }
 
-@theme
-{
+@theme {
   --animate-fadein: fadein 1s ease-out forwards;
   @keyframes fadein {
-    0%{
+    0% {
       opacity: 0;
     }
-    100%{
+    100% {
       opacity: 1;
     }
   }
 }
 
-
 @theme {
   --animate-float-in: float-in 0.7s ease forwards;
-  
+
   @keyframes float-in {
     from {
       opacity: 0;
@@ -212,17 +208,16 @@
     transform: scale(1.05);
   }
   .text-glow {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-}
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  }
 
-.box-shadow-custom-purple {
-  transition: box-shadow 0.5s ease; 
-}
+  .box-shadow-custom-purple {
+    transition: box-shadow 0.5s ease;
+  }
 
-.box-shadow-custom-purple:hover {
-  box-shadow: 4px 4px 10px rgba(186, 115, 249, 1);
-}
-
+  .box-shadow-custom-purple:hover {
+    box-shadow: 4px 4px 10px rgba(186, 115, 249, 1);
+  }
 }
 
 @keyframes wave-animation {
@@ -264,4 +259,44 @@
 .animate-gradient {
   background-size: 300% 100%;
   animation: gradient 8s linear infinite;
+}
+
+@keyframes rocket-movement {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(1200px, -600px); }
+}
+
+@keyframes spin-earth {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes move-astronaut {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-160px, -160px); }
+}
+
+@keyframes rotate-astronaut {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-720deg); }
+}
+
+.animate-rocket-move {
+  animation: rocket-movement 200s linear infinite;
+}
+
+.animate-spin-earth {
+  animation: spin-earth 100s linear infinite;
+}
+
+.animate-move-astronaut {
+  animation: move-astronaut 50s linear infinite alternate;
+}
+
+.animate-rotate-astronaut {
+  animation: rotate-astronaut 200s linear infinite alternate;
+}
+
+html {
+  scroll-behavior: smooth;
 }
