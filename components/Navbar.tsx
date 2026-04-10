@@ -1,11 +1,14 @@
 "use client";
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function Navbar() {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
+
+
+  const router = useRouter();
 
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -29,7 +32,7 @@ export default function Navbar() {
             <span className="text-purple-500/95">Portfolio</span>
           </Link>
           <div className="hidden md:flex justify-center items-center space-x-2 sm:space-x-4 md:space-x-6 text-gray-300">
-            <Link className="hover:text-white" href={"/"}>
+            <Link onClick={() => {router.refresh()}} className="hover:text-white" href={"/"}>
               Home
             </Link>
             <Link
@@ -64,7 +67,10 @@ export default function Navbar() {
         {isMobileMenuOpened && (
           <div className="px-4 flex flex-col items-center gap-4 text-gray-300 md:hidden pb-4">
             <Link
-              onClick={() => setIsMobileMenuOpened(false)}
+              onClick={() => {
+                setIsMobileMenuOpened(false)
+                router.refresh();
+              }}
               className="hover:text-white"
               href={"/"}
             >

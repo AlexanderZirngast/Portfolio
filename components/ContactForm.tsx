@@ -44,10 +44,8 @@ export default function ContactForm() {
   const [error, setError] = useState<string>("")
 
   async function  onSubmit(data: FormValues) {
-    console.log(data);
-
       try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -56,17 +54,19 @@ export default function ContactForm() {
       if (response.ok) {
         toast.success("Successfully send message");
       } 
+      if (!response.ok)
+      {
+        toast.error('No valid email address');
+      }
     } catch (error) {
-      setError(error as string)
-      toast.error('Could not send message');
+      toast.error('Could not send message: ' + error);
     }
-
   }
   return (
     <ScrollFadeIn>
       <div
         id="contact-section"
-        className="max-w-6xl  sm:px-4 sm:py-6 mx-auto relative flex justify-center"
+        className="max-w-6xl sm:px-4 sm:py-6 mx-auto relative flex justify-center"
       >
         <div className="flex flex-col gap-4 text-center  w-[50%]">
          <h1 className="text-white text-3xl  font-semibold mb-4">
