@@ -16,7 +16,7 @@ export default function Navbar() {
   ) => {
     e.preventDefault();
     const element = document.getElementById(targetId);
-    element?.scrollIntoView({ behavior: "smooth", block: "start" });
+    element?.scrollIntoView({ behavior: "smooth", block: "center" });
     setIsMobileMenuOpened(false);
   };
 
@@ -44,8 +44,8 @@ export default function Navbar() {
             </Link>
             <Link
               className="hover:text-white"
-              href={"#projects-section"}
-              onClick={(e) => handleClick(e, "projects-section")}
+              href={"#projects"}
+              onClick={(e) => handleClick(e, "projects")}
             >
               Projects
             </Link>

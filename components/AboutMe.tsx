@@ -18,7 +18,7 @@ export default function AboutMe() {
   return (
     <div
       id="about-section"
-      className="max-w-6xl px-4 py-6 mx-auto relative flex flex-col gap-4  justify-center scroll-mt-20 "
+      className="max-w-6xl min-h-full px-4 py-6 mx-auto relative flex flex-col gap-4  justify-center scroll-mt-20 "
     >
       <ScrollFadeIn>
         <h1 className=" text-3xl font-semibold flex space-x-2 mb-8 justify-center">

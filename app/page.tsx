@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import ContactForm from "@/components/ContactForm";
 import AboutMe from "@/components/AboutMe";
 import Footer from "@/components/Footer";
+import Projects from "@/components/Projects";
 export default function Home() {
   return (
     <div className="bg-[hsl(222,47%,4%)] w-screen h-screen overflow-x-hidden scrollbar-custom">
@@ -19,6 +20,7 @@ export default function Home() {
       <Navbar />
       <Hero/>
       <AboutMe/>
+      <Projects/>
       <ContactForm />
       <Footer/>
     </div>

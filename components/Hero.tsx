@@ -16,7 +16,7 @@ const handleClick = (
   ) => {
     e.preventDefault();
     const element = document.getElementById(targetId);
-    element?.scrollIntoView({ behavior: "smooth", block: "start" });
+    element?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
   return (
     <div className="max-w-6xl  px-4 py-6 mx-auto relative w-full h-full ">
@@ -36,9 +36,6 @@ const handleClick = (
             </GradientText>
 
             <div className="flex flex-col space-y-4  justify-center sm:justify-start ">
-              <h1 className="text-xl w-fit font-semibold bg-linear-to-r from-violet-500 via-sky-400 to-emerald-400 bg-clip-text text-transparent">
-                Creative Developer & Designer
-              </h1>
               <div className="text-white/90">
                 I build beautiful digital experiences that combine stunning
                 design with powerful functionality. Specializing in modern web
@@ -47,9 +44,9 @@ const handleClick = (
             </div>
             <div className="mt-4 flex space-x-4 justify-center sm:justify-start">
               <Link
-                href={"#projects-section"}
+                href={"#projects"}
                 className="border border-white transition rounded-full p-2 bg-white link-grow"
-                onClick={(e) => handleClick(e, "project-section")}
+                onClick={(e) => handleClick(e, "projects")}
               >
                 View My Projects
               </Link>
